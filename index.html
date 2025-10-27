@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CamSnare Radar</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      background-color:rgba(54,114,191);
+      padding: 15px;
+      color: white;
+      cursor: pointer;
+    }
+    nav li.active {
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <header style="box-shadow: 0 0 8px var(--glow);">
+    <nav >
+      <ul id="navList">
+        <li data-section="home">Home</li>
+        <li data-section="what">What Should You Do?</li>
+        <li data-section="news">Hidden Camera News</li>
+        <li data-section="previous">Previous Scans</li>
+        <li data-section="feedback">Feedback</li>
+        <li data-section="about">About Us</li>
+      </ul>
+    </nav>
+    <div class="profile">
+      <div class="profile-icon">U</div>
+      <span>Profile</span>
+    </div>
+  </header>
+
+ <!-- HOME SECTION --> 
+ <section id="home" class="active">
+  <div class="image-container">
+    <img src="ChatGPT Image Sep 24, 2025, 05_58_06 PM.png" alt="Camera Lens" class="hero-image" height ="400px" width = "1280px">
+    <div class="overlay-text">
+      <h1 class="scan">SCAN. Detect.</h1>
+      <h1 class="secure">SeCURE.</h1>
+      <p>“Don’t just guess—scan with confidence.”</p>
+    </div>
+  </div>
+  <div class="shaded-bar">
+    <img src = "WhatsApp Image 2025-09-24 at 17.42.39.jpeg" height = "1000px" width = "1300px">
+    <!--first bar-->
+    <p class="first_para">" Detect hidden cameras in hotel rooms, Airbnbs, changing rooms, and more with CamSnare's advanced radar technology."
+    </p>
+    <div class="world">
+      <img src = "ChatGPT Image Oct 21, 2025, 08_31_39 PM.png" height =  "800px" width = "1300px">
+      <canvas class = "radar" id="radarCanvas" width="500" height="500"></canvas>
+    </div>
+  </div>
+
+<div style="margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 180px;
+  font-size: 300%;
+  font-family: 'Times New Roman', Times, serif;">
+SCAN RESULTS
+</div>
+   
+  <!-- Radar results -->
+  <div id="output" style=" box-shadow: 0 0 8px var(--glow);
+  color: grey;
+  font-size: 120%;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 50px;">
+Tap on Radar for a Scan.
+  </div>
+<div>
+  <img src="Digital Security Concept Illustration.png" height= "600px"width = "1250px" style="margin-top: 50px;">
+
+  <div class="second_para">
+  <p class="second_one_para">
+    What is a Hidden Camera? 
+  </p>
+  <p class="second_second_para">
+    A hidden camera, also known as a spy camera or covert camera, is a small surveillance device designed to capture video or images without being easily detected. These cameras are often disguised as everyday objects such as smoke detectors, clocks, picture frames, or even USB chargers, making them difficult to spot. Hidden cameras are commonly used for security purposes, monitoring activities, or gathering evidence, but they can also be misused for invasive surveillance and privacy violations. Due to their discreet nature, hidden cameras can raise significant ethical and legal concerns regarding consent and privacy rights.
+  </div>
+
+  <div class="third_para">
+  <p class="third_one_para">
+    What could be the purpose of placing a hidden camera?
+  </p>
+  <p class="third_second_para">
+    Hidden cameras can be placed for various purposes, both legitimate and illegitimate. Some common reasons include:
+    <ul class="third_third_list">
+      <li>Security and Surveillance: To monitor homes, businesses, or public spaces for security purposes, deterring theft, vandalism, or unauthorized access.</li>
+      <li>Employee Monitoring: Employers may use hidden cameras to ensure employee productivity and adherence to company policies.</li>
+      <li>Nanny Cams: Parents may use hidden cameras to monitor the care provided by babysitters or nannies.</li>
+      <li>Evidence Gathering: To collect evidence in legal cases, such as documenting harassment or illegal activities.</li>
+      <li>Invasion of Privacy: Illegitimate use includes spying on individuals without their consent, such as in hotel rooms, changing rooms, or private residences.</li>
+  </p>
+    </ul>
+  </div>
+
+  <div class="fourth_para">
+  <p class="fourth_one_para">
+    Do you want to do a quick check for cameras?
+  </p>
+  <p class="fourth_second_para">
+    Use CamSnare's advanced radar technology to scan your surroundings for hidden cameras.First of all click on the radar above, that detects devices near you. It will show the details of the devices(camera) if any device is detected. Then you can use tool that utilizes multiple detection methods, including thermal, infrared, and optical scans, to help you identify any concealed devices. Simply click the buttons below to initiate a scan and ensure your privacy is protected.
+  </p>
+  </div>
+</div>
+
+
+<!-- Button for realtime scan -->
+  <!-- <button class ="realScan-button"onclick="startRealtimeScan()">Realtime Scan</button> -->
+  <div style="margin-left: 70px;
+    color:black;
+    margin-right: 70px;
+    margin-top: 180px;
+    font-size: 300%;
+    font-family: 'Times New Roman', Times, serif;">
+    THERMAL SCAN | INFRARED SCAN | OPTICAL SCAN
+  </div>
+  <div class="extraButtons">
+    <div>
+      <button id="thermalBtn">Thermal Scan</button>
+      <p class="explain">Detect heat signatures from hidden electronics.</p>
+    </div>
+    <div>
+      <button id="infraredBtn">Infrared Scan</button>
+      <p class="explain">Reveal hidden cameras using infrared light.</p>
+    </div>
+    <div>
+      <button id="opticalBtn">Optical Scan</button>
+      <p class="explain">Use your phone camera to find hidden lenses.</p>
+    </div>
+</div>
+
+<div class = "last_second" style=" 
+  color:black;
+  box-shadow: 0 0 8px var(--glow);
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:rgba(54,114,191);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 500px;
+  margin-top:100px;">
+  Want to know more about us?
+</div>
+
+<div class = "last_second" style=" 
+  color:black;
+  box-shadow: 0 0 8px var(--glow);
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:rgba(54,114,191);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 550px;
+  margin-top:80px;">
+  Need Help?
+</div>
+</section>
+  <!-- WHAT SHOULD YOU DO -->
+  <section id="what">
+    <h2>What Should You Do?</h2>
+    <p>
+      <div style="font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 40px; color: black;">
+        <h2>🧠 What Should You Do?</h2>
+        <p>If CamSecure Radar detects a suspicious device nearby, here’s how to respond calmly and effectively.</p>
+        <p>Hidden cameras can be found in hotel rooms, rental properties, offices, changing rooms, and even public spaces. If your scan reveals a device with a high confidence score or risk level, follow these steps:</p>
+
+        <h3>🔍 Step-by-Step Response:</h3>
+        <ul>
+          <li><strong>Inspect the Area:</strong> Go to the location indicated by the scan (e.g., "Near (East)" or "RF Zone") and look for anything unusual — small holes, blinking lights, or unfamiliar gadgets.</li>
+          <li><strong>Check Common Hiding Spots:</strong> Look behind mirrors, inside smoke detectors, air purifiers, wall clocks, picture frames, or USB chargers.</li>
+          <li><strong>Disable Suspicious Devices:</strong> If you find a device and it’s accessible, unplug it or cover the lens. If it’s wireless, turn off its power source or block its signal.</li>
+          <li><strong>Document Everything:</strong> Take photos of the device, note the timestamp from your scan, and save the scan results. This can be useful for reporting or legal action.</li>
+          <li><strong>Report the Incident:</strong> Notify hotel staff, property managers, or building security. If you feel unsafe, contact local authorities.</li>
+          <li><strong>Protect Your Privacy:</strong> Avoid sensitive conversations or activities until you’re confident the area is secure. Consider using a privacy cover or changing rooms.</li>
+        </ul>
+        <p><em>CamSecure Radar gives you the tools — but your awareness and action complete the protection.</em></p>
+      </div>
+    </p>
+  </section>
+
+  <!-- HIDDEN CAMERA NEWS -->
+  <section id="news">
+    <h2>Hidden Camera News</h2>
+    <p>
+      <div style="font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 40px; color: black;">
+
+        <h2>📰 Hidden Camera News</h2>
+        <p>Stay informed about the latest threats, discoveries, and breakthroughs in surveillance technology.</p>
+        <p>This section curates real-world stories, expert insights, and emerging trends in privacy and surveillance. It helps users understand how hidden cameras are being used — and misused — around the world.</p>
+
+        <h3>🔦 Recent Topics You Might See:</h3>
+        <ul>
+          <li><strong>Airbnb & Hotel Incidents:</strong> Guests discovering hidden cameras in smoke detectors, alarm clocks, and even shampoo bottles.</li>
+          <li><strong>Spy Tech in Public Spaces:</strong> Cases of surveillance in restrooms, gyms, and coworking spaces.</li>
+          <li><strong>Legal Battles:</strong> Lawsuits over unauthorized recordings and privacy violations.</li>
+          <li><strong>Tech Innovations:</strong> How AI, thermal imaging, and RF sweeps are changing the game in camera detection.</li>
+          <li><strong>DIY Detection Tips:</strong> How people are using flashlights, phone cameras, and apps to spot hidden lenses.</li>
+        </ul>
+        <p><em>Knowledge is your shield. The more you know, the harder it is for anyone to invade your space.</em></p>
+     </div>
+    </p>
+  </section>
+
+  <!-- PREVIOUS SCANS -->
+  <section id="previous">
+    <h2>Previous Scans</h2>
+    <p>
+    <div style="font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 40px; color: black;">
+      <h2>📊 Previous Scans</h2>
+      <p>Your scan history is more than data — it’s your personal privacy log.</p>
+      <p>This section stores all past scans you've performed using CamSecure Radar. It helps you track patterns, revisit suspicious detections, and build a timeline of your environment’s safety.</p>
+
+      <h3>📁 What’s Included:</h3>
+      <ul>
+       <li><strong>Device Type:</strong> Smartphone, Webcam, IP Camera, Hidden Camera, etc.</li>
+       <li><strong>MAC & IP Address:</strong> Unique identifiers for each device.</li>
+       <li><strong>Vendor Info:</strong> Manufacturer details (e.g., Xiaomi, Hikvision, Logitech).</li>
+       <li><strong>Confidence Score:</strong> A percentage indicating how likely the device is camera-bearing.</li>
+       <li><strong>Risk Level:</strong> Low, Medium, or High — based on signal strength, vendor, and detection method.</li>
+       <li><strong>Location Estimate:</strong> Based on RSSI or thermal zone.</li>
+       <li><strong>Timestamp:</strong> Exact time the device was detected.</li>
+      </ul>
+      <p><em>Use this data to compare environments, report incidents, or simply stay aware of what’s around you.</em></p>
+    </div>
+    </p>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section id="feedback">
+    <h2>Feedback</h2>
+    <p>
+      <div style="font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 40px; color: black;">
+        <h2>💬 Feedback</h2>
+        <p>Your voice shapes the future of CamSecure Radar.</p>
+        <p>We’re building this platform to serve real people in real situations. Your feedback helps us improve detection accuracy, user experience, and overall reliability.</p>
+
+        <h3>🛠️ What You Can Share:</h3>
+        <ul>
+          <li><strong>Bug Reports:</strong> If something didn’t work as expected, let us know.</li>
+          <li><strong>Feature Requests:</strong> Want a new scan mode? A radar map? CSV export? Tell us.</li>
+          <li><strong>Scan Results:</strong> Share anonymized results to help us train smarter detection models.</li>
+          <li><strong>User Experience:</strong> Was the interface clear? Did the results make sense? Was the scan fast enough?</li>
+        </ul>
+        <p><em>Every suggestion helps us build a better tool — one that protects privacy for everyone.</em></p>
+      </div>
+    </p>
+  </section>
+
+    <!-- ABOUT US -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>  
+      <div style="font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 40px; color: black;">
+        <h2>ℹ️ About Us</h2>
+        <p>CamSecure Radar is built on a simple belief: privacy is a human right.</p>
+        <p>We’re Elevate Labs — a team of engineers, designers, and privacy advocates who believe that surveillance should never be invisible or unchecked. CamSecure Radar is our response to a growing problem: hidden cameras in everyday spaces.</p>
+
+        <h3>🔧 What We Do:</h3>
+        <ul>
+          <li><strong>Real-Time Detection:</strong> Scan for Wi-Fi, Bluetooth, RF, thermal, infrared, and optical signals.</li>
+          <li><strong>AI-Powered Analysis:</strong> Classify devices, assess risk, and visualize results.</li>
+          <li><strong>User-Friendly Design:</strong> No jargon, no guesswork — just clear results and actionable insights.</li>
+          <li><strong>Privacy First:</strong> We don’t store your scans or track your location. You’re in control.</li>
+        </ul>
+        <p><em>Whether you’re traveling, working, or just trying to feel safe at home — CamSecure Radar helps you take back your space.</em></p>
+      </div>
+    </p>
+  </section>
+
+<div id="scanOutput"></div>
+
+<!-- Radar Script -->
+<script src="script.js">   
+</script>
+<script>
+  // Navigation logic
+  const navItems = document.querySelectorAll("#navList li");
+  const sections = document.querySelectorAll("section");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      // Remove active from all
+      navItems.forEach(i => i.classList.remove("active"));
+      sections.forEach(sec => sec.classList.remove("active"));
+
+      // Add active to clicked
+      item.classList.add("active");
+      const sectionId = item.dataset.section;
+      document.getElementById(sectionId).classList.add("active");
+    });
+  });
+</script>
+</body>
+</html>
