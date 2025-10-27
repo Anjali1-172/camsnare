@@ -1,0 +1,321 @@
+
+:root {
+      --glow:black /*rgb(54,114,191)*/;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      background: white; /* white background */
+      font-family: Arial, sans-serif;
+      color: black; /* black text */
+    }
+
+    /* ===== Top Navigation Bar ===== */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      box-sizing: border-box;
+      background:rgba(54,114,191);
+      border-bottom: 1px solid rgba(54,114,191,0.3);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 18px;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav ul li:hover {
+      color: var(--glow);
+      text-shadow: 0 0 6px var(--glow);
+    }
+
+    /* Profile section */
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .profile-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      box-shadow: 0 0 8px var(--glow);
+    }
+
+    /* ===== Radar ===== */
+    .radar-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    
+    canvas {
+      display: block;
+      background: #fff;
+      border-radius: 50%;
+      margin: 20px auto;
+      box-shadow: 0 0 15px var(--glow), 0 0 30px var(--glow);
+    }
+
+    button {
+      margin: 5px;
+      padding: 6px 12px;
+      font-size: 14px;
+      background: #fff;
+      color: #000;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 6px var(--glow);
+    }
+
+    button:hover {
+      background:rgba(54,114,191) ;
+      color: #fff;
+    }
+
+    .realScan-button{
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .hero-image {
+      margin-left: auto;
+      display: block;
+      object-fit: cover;
+      margin-top: 0px; /* push it below navbar (match your navbar height) */
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Fade-in effect */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .overlay-text {
+    font-size: 2rem;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Engagement&display=swap');
+
+.overlay-text{
+  position: absolute;
+  color:#cccccc;
+  top: 20%;
+  margin-left: 20px;
+  
+}
+.overlay-text .scan {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 1px;
+  top: 5%;
+  color: white;
+  font-size: 100px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Engagement&family=Lexend+Mega:wght@100..900&display=swap');
+
+.overlay-text .secure{
+  color:  rgba(54,114,191);
+  margin-bottom: auto;
+  margin-top: auto;
+  font-family: 'roboto';
+  font-size: 75px;
+}
+
+.overlay-text p {
+  font-size: 18px;
+  color: #cccccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* New first_text class */
+.first_para{ 
+  font-family: initial;
+  box-shadow: 0 0 8px var(--glow);
+  margin-right: 10px;
+  position: absolute;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  padding-right: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  top: 120%;
+  margin-left: 70px;
+  margin-right: 70px;
+  border-radius: 10px;
+}
+
+.world {
+  position:absolute;
+  top: 150%;
+}
+
+.radar {
+  position: absolute;
+  top: 20%;
+  margin-left: 360px;
+}
+
+
+.second_para{
+  box-shadow: 0 0 8px var(--glow);
+  color: black;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 5px;
+}
+.second_one_para{
+  font-size:20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.second_second_para{
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+.third_para{
+  box-shadow: 0 0 8px var(--glow);
+  color: black;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 100px;
+}
+.third_one_para{
+  font-size:20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.third_second_para{
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.third_third_list{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.fourth_para{
+  box-shadow: 0 0 8px var(--glow);
+  color: black;
+  background-color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 10px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 100px;
+}
+.fourth_one_para{
+  font-size:20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fourth_second_para{
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+
+.extraButtons {
+  color: rgba(54,114,191);
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+    
+/* apply these steps to each button inside extraButtons */
+.extraButtons button{
+  top: 200%;
+  margin: 100px;
+  padding: 50px 40px;
+  overflow: hidden;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+}
+.extraButtons button:hover {
+  background: var(--glow);
+  color: #fff;
+}
+
+.extraButtons .explain {
+  font-size: 14px;
+  color: black;
+  margin-top: 10px;
+  margin-left:70px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.last_second{
+  color:black;
+  font-size: medium;
+  background-color:rgba(54,114,191);
+  padding: 50px, 1270px;
+}
